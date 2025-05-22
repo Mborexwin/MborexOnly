@@ -80,42 +80,36 @@ body {
   gap: 5;
 }
 
-.redes-fijas {
-  position: fixed;
-  bottom: 25px;
-  right: 25px;
-  display: flex;
-  gap: 10px;
-  z-index: 1000;
+@keyframes flotando {
+  0%   { transform: translateY(0); }
+  50%  { transform: translateY(-6px); }
+  100% { transform: translateY(0); }
 }
 
-.redes-fijas img {
-  width: 30px;
-  height: 30px;
-  transition: transform 0.3s ease;
-}
-
-.redes-fijas img:hover {
-  transform: scale(1.1);
-}
 .redes-sociales {
   position: fixed;
-  bottom: 20px; /* Más abajo de la barra */
+  bottom: 20px;
   right: 20px;
   display: flex;
-  flex-direction: row;
-  gap: 20px;
-  padding: 0px;
+  flex-direction: row; /* Para que estén uno al lado del otro */
+  gap: 12px;
+  background: rgba(0, 0, 0, 0);
+  padding: 10px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgb(255, 0, 0);
   z-index: 999;
-  background: rgba(11, 11, 10, 0);
-  border-radius: 10px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0);
 }
 
 .redes-sociales a {
   display: flex;
   align-items: center;
   justify-content: center;
+  animation: flotando 3s ease-in-out infinite;
+  transition: transform 0.3s ease;
+}
+
+.redes-sociales a:hover {
+  transform: scale(1.2);
 }
 .etiqueta-agotado {
   position: absolute;
