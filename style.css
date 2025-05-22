@@ -1,0 +1,143 @@
+.productos {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+  padding: 0.0rem;
+}
+body {
+  position: relative;
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+  color: white;
+  z-index: 0;
+  overflow-x: hidden;
+}
+
+/* Fondo fijo compatible con teléfonos */
+body::before {
+  content: '';
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0)),
+              url('photo-1569241095162-e3b9a583b9d3.jpeg') no-repeat center center;
+  background-size: cover;
+  z-index: -1;
+}
+
+
+.producto {
+  flex: 1 1 calc(48% - 10px); /* Para que quepan 2 por fila */
+  background-color: #ffffff00;
+  border: 1px solid #f3e8e888;
+  border-radius: 12px;
+  box-shadow: 0 4px 8px rgba(230, 228, 228, 0.452);
+  text-align: center;
+  padding: 12px;
+  max-width: 220px; /* Evita que se pasen en pantallas chicas */
+  box-sizing: border-box;
+}
+
+.producto img {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  margin-bottom: 10px;
+}
+
+.precio {
+  font-weight: bold;
+  color: #007bff;
+  margin: 8px 0;
+}
+
+.boton {
+  background-color: #25d3652e;
+  color: white;
+  padding: 10px 20px;
+  text-decoration: none;
+  border-radius: 8px;
+  font-weight: bold;
+  display: inline-block;
+  margin-top: 10px;
+}
+
+/* 3 productos por fila en pantallas medianas para arriba */
+@media (min-width: 768px) {
+  .producto {
+    flex: 1 1 calc(31% - 10px);
+    max-width: 250px;
+  }
+}
+.encabezado {
+  display: flex;
+  align-items: center;
+  gap: 17px; /* Controla la separación entre logo y texto */
+  background-color: rgba(0, 0, 0, 0.508);
+  padding: 10px;
+}
+
+.logo {
+  height: 80px; /* Ajustás el tamaño del logo */
+   border-radius: 5px;
+  box-shadow: 0 0 10px rgb(255, 14, 14);
+  background-color: rgba(255, 4, 4, 0.181);
+}
+
+.titulo {
+  font-size: 50px;
+  color: white;
+  margin: 0;
+  gap: 5;
+}
+
+@keyframes flotando {
+  0%   { transform: translateY(0); }
+  50%  { transform: translateY(-6px); }
+  100% { transform: translateY(0); }
+}
+
+.redes-sociales {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  display: flex;
+  flex-direction: row; /* Para que estén uno al lado del otro */
+  gap: 12px;
+  background: rgba(0, 0, 0, 0);
+  padding: 10px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgb(255, 0, 0);
+  z-index: 999;
+}
+
+.redes-sociales a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: flotando 3s ease-in-out infinite;
+  transition: transform 0.3s ease;
+}
+
+.redes-sociales a:hover {
+  transform: scale(1.2);
+}
+
+.etiqueta-agotado {
+  position: absolute;
+  background-color: red;
+  color: white;
+  font-weight: bold;
+  padding: 4px 8px;
+  border-radius: 4px;
+  top: 10px;
+  left: 10px;
+  font-size: 14px;
+  z-index: 10;
+}
+
+/* Asegurate que el contenedor tenga position: relative */
+.producto {
+  position: relative;
+}
